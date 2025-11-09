@@ -1,0 +1,3 @@
+﻿core: "Fusion Hub System"
+data_chain: ["Input","Stage1","Stage2","DB","BI"]
+logic_chain: ["Control","Action","Notify"]

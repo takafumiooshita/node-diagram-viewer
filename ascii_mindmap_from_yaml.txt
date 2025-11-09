@@ -1,0 +1,12 @@
+# ASCII Mindmap (Flow × Layer) | generated: 2025-11-09 23:20:52
+# rule: ====▶ (data flow), ----▶ (control flow)
+
+                          [Fusion Hub System]
+                               │
+              ┌────────────────┴────────────────┐
+              │                                 │
+        [📂 Data Layer]                   [🔧 Logic Layer]
+              │                                 │
+    [Input]====▶[Stage1]====▶[Stage2]====▶[DB]====▶[BI]
+    [Control]----▶[Action]----▶[Notify]
+
