@@ -1,0 +1,11 @@
+nodes:
+  - {id: ORG1,  label: Origin,        tier: 0, col: 1, type: Const, params:{value:"Core Idea"}}
+  - {id: DAT1,  label: Data Layer,    tier: 1, col: 0, type: Passthrough}
+  - {id: DSRC,  label: Sources,       tier: 1, col: 0, type: Passthrough}
+  - {id: FUNC1, label: Function Layer,tier: 1, col: 2, type: Passthrough}
+  - {id: ORCH,  label: Orchestrator,  tier: 1, col: 2, type: Passthrough}
+links:
+  - {from: ORG1,  out: out, to: DAT1,  in: in}
+  - {from: ORG1,  out: out, to: FUNC1, in: in}
+  - {from: DAT1,  out: out, to: DSRC,  in: in}
+  - {from: FUNC1, out: out, to: ORCH,  in: in}
