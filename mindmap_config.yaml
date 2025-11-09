@@ -1,20 +1,24 @@
 ﻿core: "Fusion Hub System"
+
 data_layers:
-  - {name: "Input",  depth: 1, side: "left"}
-  - {name: "Stage1", depth: 2, side: "left"}
-  - {name: "Stage2", depth: 3, side: "left"}
-  - {name: "DB",     depth: 4, side: "left"}
-  - {name: "BI",     depth: 5, side: "left"}
+  - {id: "N1", name: "Input",   desc: "外部データ/ファイル取り込み", depth: 1, side: "left"}
+  - {id: "N2", name: "Stage1",  desc: "前処理・整形",                  depth: 2, side: "left"}
+  - {id: "N3", name: "Stage2",  desc: "特徴抽出・集計",                depth: 3, side: "left"}
+  - {id: "N4", name: "DB",      desc: "永続化（RDB/湖）",              depth: 4, side: "left"}
+  - {id: "N5", name: "BI",      desc: "可視化/レポート",               depth: 5, side: "left"}
+
 logic_layers:
-  - {name: "Control", depth: 1, side: "right"}
-  - {name: "Action",  depth: 2, side: "right"}
-  - {name: "Notify",  depth: 3, side: "right"}
-# フロー定義（データ流＝====▶、制御流＝----▶）
+  - {id: "L1", name: "Control", desc: "制御・スケジューラ",            depth: 1, side: "right"}
+  - {id: "L2", name: "Action",  desc: "処理キック/実行",               depth: 2, side: "right"}
+  - {id: "L3", name: "Notify",  desc: "通知/監視",                      depth: 3, side: "right"}
+
+# フローは node-id 参照（名称変更に強い）
 flows_data:
-  - {from: "Input",  to: "Stage1"}
-  - {from: "Stage1", to: "Stage2"}
-  - {from: "Stage2", to: "DB"}
-  - {from: "DB",     to: "BI"}
+  - {from: "N1", to: "N2"}
+  - {from: "N2", to: "N3"}
+  - {from: "N3", to: "N4"}
+  - {from: "N4", to: "N5"}
+
 flows_logic:
-  - {from: "Control", to: "Action"}
-  - {from: "Action",  to: "Notify"}
+  - {from: "L1", to: "L2"}
+  - {from: "L2", to: "L3"}
