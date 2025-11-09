@@ -1,0 +1,23 @@
+# ASCII Mindmap (Layered)
+# generated: 2025-11-09 23:24:31
+
+[Fusion Hub System]
+│
+├── [📂 Data Layer]
+[📂 Input]
+====▶
+    [📂 Stage1]
+    ====▶
+        [📂 Stage2]
+        ====▶
+            [📂 DB]
+            ====▶
+                [📂 BI]
+
+└── [🔧 Logic Layer]
+[🔧 Control]
+----▶
+    [🔧 Action]
+    ----▶
+        [🔧 Notify]
+
