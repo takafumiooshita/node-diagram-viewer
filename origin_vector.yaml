@@ -1,0 +1,19 @@
+﻿version: 0.0001
+purpose: "構造と表現を並列成長させる起点ベクトル定義"
+structure:
+  - .gitconfig
+  - .gitignore
+  - .metadata
+  - ooshita.iml
+  - env_check_report_v022.txt
+  - templates/
+  - placeholders/
+expression:
+  - ascii_mindmap_flow_layer.txt
+  - ascii_mindmap_flow_layer.png
+  - 01_step_vertical.md
+  - 02_chart_focus.md
+  - 03_split_half.md
+  - 04_minimal_heading.md
+  - 05_full_image_title.md
+status: "initializing"
