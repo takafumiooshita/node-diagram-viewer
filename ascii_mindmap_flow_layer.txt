@@ -1,0 +1,21 @@
+# ASCII Mindmap (Flow × Layer)
+# generated: 2025-11-09 23:30:25
+
+[Fusion Hub System]
+│
+┌─ [📂 Data Layer]           │[🔧 Logic Layer] ─┐          
+[📂 Input]                   │[🔧 Control]                 
+  [📂 Stage1]                │  [🔧 Action]                
+    [📂 Stage2]              │    [🔧 Notify]              
+      [📂 DB]                │                            
+        [📂 BI]              │                            
+└────────────────────────── ┴─────────────────────────── 
+
+== Data Flows ==
+  [Input] ====▶ [Stage1]
+  [Stage1] ====▶ [Stage2]
+  [Stage2] ====▶ [DB]
+  [DB] ====▶ [BI]
+== Control Flows ==
+  [Control] ----▶ [Action]
+  [Action] ----▶ [Notify]

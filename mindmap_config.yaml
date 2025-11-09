@@ -1,11 +1,20 @@
 ﻿core: "Fusion Hub System"
 data_layers:
-  - {name: "Input", depth: 1}
-  - {name: "Stage1", depth: 2}
-  - {name: "Stage2", depth: 3}
-  - {name: "DB", depth: 4}
-  - {name: "BI", depth: 5}
+  - {name: "Input",  depth: 1, side: "left"}
+  - {name: "Stage1", depth: 2, side: "left"}
+  - {name: "Stage2", depth: 3, side: "left"}
+  - {name: "DB",     depth: 4, side: "left"}
+  - {name: "BI",     depth: 5, side: "left"}
 logic_layers:
-  - {name: "Control", depth: 1}
-  - {name: "Action", depth: 2}
-  - {name: "Notify", depth: 3}
+  - {name: "Control", depth: 1, side: "right"}
+  - {name: "Action",  depth: 2, side: "right"}
+  - {name: "Notify",  depth: 3, side: "right"}
+# フロー定義（データ流＝====▶、制御流＝----▶）
+flows_data:
+  - {from: "Input",  to: "Stage1"}
+  - {from: "Stage1", to: "Stage2"}
+  - {from: "Stage2", to: "DB"}
+  - {from: "DB",     to: "BI"}
+flows_logic:
+  - {from: "Control", to: "Action"}
+  - {from: "Action",  to: "Notify"}
