@@ -1,0 +1,29 @@
+﻿name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Validate origin_vector.yaml (if exists)
+        run: |
+          python - <<'PY'
+          import os, sys, yaml
+          p='origin_vector.yaml'
+          if os.path.exists(p):
+              with open(p,'r',encoding='utf-8') as f:
+                  yaml.safe_load(f)
+              print('OK: YAML parsed:', p)
+          else:
+              print('SKIP: origin_vector.yaml not found')
+          PY
+      - name: Show tree
+        run: |
+          ls -la
